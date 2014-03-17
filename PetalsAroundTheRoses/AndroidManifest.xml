@@ -30,6 +30,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="sc.erza.petalsaroundtheroses.MainActivity" />
         </activity>
+        <activity
+            android:name="sc.erza.petalsaroundtheroses.Game"
+            android:label="@string/title_activity_game"
+            android:parentActivityName="sc.erza.petalsaroundtheroses.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="sc.erza.petalsaroundtheroses.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
