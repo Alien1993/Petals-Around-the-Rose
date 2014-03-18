@@ -12,7 +12,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         <activity
             android:name="sc.erza.petalsaroundtheroses.MainActivity"
             android:label="@string/app_name" >
@@ -23,16 +23,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="sc.erza.petalsaroundtheroses.SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:name="sc.erza.petalsaroundtheroses.Game"
+            android:label="@string/title_activity_game"
             android:parentActivityName="sc.erza.petalsaroundtheroses.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="sc.erza.petalsaroundtheroses.MainActivity" />
         </activity>
         <activity
-            android:name="sc.erza.petalsaroundtheroses.Game"
-            android:label="@string/title_activity_game"
+            android:name="sc.erza.petalsaroundtheroses.Rules"
+            android:label="@string/title_activity_rules"
             android:parentActivityName="sc.erza.petalsaroundtheroses.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
