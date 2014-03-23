@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Game extends Activity {
 	
+	private Integer theAnswer = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -14,36 +17,61 @@ public class Game extends Activity {
 	}
 
 	private int throwDice() {
-		int randInt = (int)(Math.random() * 7 + 1);
+		int randInt = (int)(Math.random() * 6 + 1);
 		return randInt;
 	}
-	
+
 	public void showThrow(View view) {
-		ImageView imageview1 = (ImageView) findViewById(R.id.imageView1);
-		switch(throwDice()) {
-		case 1: 
-				imageview1.setImageResource(R.drawable.one);
-				break;
-				
-		case 2:
-				imageview1.setImageResource(R.drawable.two);
-				break;
-				
-		case 3:
-				imageview1.setImageResource(R.drawable.three);
-				break;
-				
-		case 4:
-				imageview1.setImageResource(R.drawable.four);
-				break;
+		
+		
+		ImageView dice1 = (ImageView) findViewById(R.id.dice1);
+		ImageView dice2 = (ImageView) findViewById(R.id.dice2);
+		ImageView dice3 = (ImageView) findViewById(R.id.dice3);
+		ImageView dice4 = (ImageView) findViewById(R.id.dice4);
+		ImageView dice5 = (ImageView) findViewById(R.id.dice5);
+		ImageView dice6 = (ImageView) findViewById(R.id.dice6);
+		
+		ImageView diceQ[] = {dice1, dice2, dice3, dice4, dice5, dice6};
+		
+		theAnswer = 0;
+		
+		for(ImageView dice : diceQ) {
 			
-		case 5:
-				imageview1.setImageResource(R.drawable.five);
-				break;
+			int i = this.throwDice();
 			
-		case 6:
-				imageview1.setImageResource(R.drawable.six);
-				break;
+			switch(i) {
+				case 1:
+						dice.setImageResource(R.drawable.one);
+						break;
+						
+				case 2:
+						dice.setImageResource(R.drawable.two);
+						break;
+						
+				case 3:
+						dice.setImageResource(R.drawable.three);
+						theAnswer += 2;
+						break;
+						
+				case 4:
+						dice.setImageResource(R.drawable.four);
+						break;
+					
+				case 5:
+						dice.setImageResource(R.drawable.five);
+						theAnswer += 4;
+						break;
+					
+				case 6:
+						dice.setImageResource(R.drawable.six);
+						break;
+			}
 		}
+		
+	}
+	
+	public void showAnswer (View view) {
+		TextView textAnswer = (TextView) findViewById(R.id.textView1);
+		textAnswer.setText(theAnswer.toString());
 	}
 }
