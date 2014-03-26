@@ -2,10 +2,11 @@ package sc.erza.petalsaroundtheroses;
 
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class Game extends Activity {
 	
@@ -36,6 +37,7 @@ public class Game extends Activity {
 		ImageView diceQ[] = {dice1, dice2, dice3, dice4, dice5, dice6};
 		
 		theAnswer = 0;
+		
 		
 		for(ImageView dice : diceQ) {
 			
@@ -73,7 +75,21 @@ public class Game extends Activity {
 	}
 	
 	public void showAnswer (View view) {
-		TextView textAnswer = (TextView) findViewById(R.id.textView1);
-		textAnswer.setText(theAnswer.toString());
+		
+		EditText answerField = (EditText) findViewById(R.id.editText1);
+		String textAnswer = answerField.getText().toString();
+		
+		if (textAnswer.equals(theAnswer.toString())) {
+			Drawable green = getResources().getDrawable(R.drawable.green);
+			answerField.setBackground(green);
+			answerField.setPaddingRelative(10, 10, 10, 10);
+		}
+		else {
+			answerField.setText(theAnswer.toString());
+			Drawable red = getResources().getDrawable(R.drawable.red);
+			answerField.setBackground(red);
+			answerField.setPaddingRelative(10, 10, 10, 10);
+		}
+		
 	}
 }
