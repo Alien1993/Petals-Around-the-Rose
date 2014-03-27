@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -26,6 +27,10 @@ public class Game extends Activity {
 
 	public void showThrow(View view) {
 		
+		EditText answerField = (EditText) findViewById(R.id.editText1);
+		Drawable beige = getResources().getDrawable(R.drawable.beige);
+		answerField.setBackground(beige);
+		answerField.setPaddingRelative(10, 10, 10, 10);
 		
 		ImageView dice1 = (ImageView) findViewById(R.id.dice1);
 		ImageView dice2 = (ImageView) findViewById(R.id.dice2);
@@ -72,6 +77,12 @@ public class Game extends Activity {
 			}
 		}
 		
+		Button diceThrower = (Button) findViewById(R.id.button1);
+		diceThrower.setClickable(false);
+		
+		Button answerer = (Button) findViewById(R.id.button2);
+		answerer.setClickable(true);
+		
 	}
 	
 	public void showAnswer (View view) {
@@ -90,6 +101,12 @@ public class Game extends Activity {
 			answerField.setBackground(red);
 			answerField.setPaddingRelative(10, 10, 10, 10);
 		}
+		
+		Button diceThrower = (Button) findViewById(R.id.button1);
+		diceThrower.setClickable(true);
+		
+		Button answerer = (Button) findViewById(R.id.button2);
+		answerer.setClickable(false);
 		
 	}
 }
